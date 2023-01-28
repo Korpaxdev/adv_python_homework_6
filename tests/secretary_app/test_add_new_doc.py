@@ -4,17 +4,17 @@ from secretary_app.app import add_new_doc, documents, directories
 from itertools import chain
 
 
-def generate_random_passport_number():
+def generate_random_passport_number() -> str:
     """Генерирует рандомный паспортный номер"""
     return f"{randrange(0000, 5550)} {randrange(000000, 999999)}"
 
 
-def generate_random_shelf_number():
+def generate_random_shelf_number() -> str:
     """Генерирует рандомный номер полки"""
     return str(randrange(1, 100))
 
 
-def generate_document_list(doc_count=5):
+def generate_document_list(doc_count: int = 5) -> list:
     """
     Создает список из документов, с рандомными данными.
     :params
