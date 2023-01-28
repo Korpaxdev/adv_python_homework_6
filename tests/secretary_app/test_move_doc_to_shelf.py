@@ -12,6 +12,10 @@ from secretary_app.app import move_doc_to_shelf, directories
 
 ])
 def test_move_doc_to_shelf(doc_number, shelf_number, monkeypatch):
+    """
+    Тест на перемещение документа с одной полки на другую (move_doc_to_shelf)
+    assert - Если результат True, то дополнительная проверка на то, чтобы документ присутствовал в directories
+    """
     monkeypatch.setattr('builtins.input', lambda x: doc_number if x == 'Введите номер документа - ' else shelf_number)
     result = move_doc_to_shelf()
     assert isinstance(result, bool)
