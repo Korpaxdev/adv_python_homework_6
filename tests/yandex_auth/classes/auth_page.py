@@ -19,32 +19,32 @@ class AuthPage:
         self.__base_init()
 
     def validate_email(self) -> Self:
-        email_input = self.selenium_base.find_element(By.ID, Selectors.EMAIL_INPUT_ID)
+        email_input = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.EMAIL_INPUT_ID)
         assert email_input, ErrorMessages.EMAIL_INPUT_NOT_FOUND
         self.__fill_input(email_input, self.login)
-        login_hint = self.selenium_base.find_element(By.ID, Selectors.EMAIL_HINT_ID)
+        login_hint = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.EMAIL_HINT_ID)
         assert not login_hint, login_hint.text
         return self
 
     def validate_password(self) -> None:
-        password_input = self.selenium_base.find_element(By.ID, Selectors.PASSWORD_INPUT_ID)
+        password_input = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.PASSWORD_INPUT_ID)
         if not password_input:
             return self.__check_qr_code()
         self.__fill_input(password_input, self.password)
-        password_captcha = self.selenium_base.find_element(By.CLASS_NAME, Selectors.PASSWORD_CAPTCHA_CLASS)
+        password_captcha = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.PASSWORD_CAPTCHA_CLASS)
         assert not password_captcha, ErrorMessages.PASSWORD_CAPTCHA
-        password_hint = self.selenium_base.find_element(By.ID, Selectors.PASSWORD_HINT_ID)
+        password_hint = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.PASSWORD_HINT_ID)
         assert not password_hint, password_hint.text
         self.__check_phone_number()
 
     def __check_qr_code(self) -> None:
-        self.__wait_for_element_disappeared(Selectors.QR_CODE_CLASS, By.CLASS_NAME, ErrorMessages.QR_CODE)
+        self.__wait_for_element_disappeared(Selectors.QR_CODE_CLASS, By.CSS_SELECTOR, ErrorMessages.QR_CODE)
 
     def __check_phone_number(self) -> None:
         phone_confirm_button = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.PHONE_CONFIRM_BUTTON_SELECTOR)
         if phone_confirm_button:
             phone_confirm_button.click()
-            self.__wait_for_element_disappeared(Selectors.PHONE_CODE_FIELD_CLASS, By.CLASS_NAME,
+            self.__wait_for_element_disappeared(Selectors.PHONE_CODE_FIELD_CLASS, By.CSS_SELECTOR,
                                                 ErrorMessages.PHONE_CONFIRM)
 
     def __base_init(self) -> None:
@@ -58,7 +58,7 @@ class AuthPage:
         login_type_button.click()
 
     def __check_add_account_button(self) -> None:
-        add_account_button = self.selenium_base.find_element(By.CLASS_NAME, Selectors.ADD_ACCOUNT_BUTTON_CLASS)
+        add_account_button = self.selenium_base.find_element(By.CSS_SELECTOR, Selectors.ADD_ACCOUNT_BUTTON_CLASS)
         if add_account_button:
             add_account_button.click()
 

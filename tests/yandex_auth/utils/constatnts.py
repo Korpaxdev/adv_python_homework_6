@@ -8,16 +8,16 @@ class Main:
 
 @dataclass(frozen=True)
 class Selectors:
-    EMAIL_INPUT_ID = 'passp-field-login'
-    EMAIL_HINT_ID = 'field:input-login:hint'
-    PASSWORD_INPUT_ID = 'passp-field-passwd'
-    PASSWORD_HINT_ID = 'field:input-passwd:hint'
-    QR_CODE_CLASS = 'MagicField-qr'
-    PASSWORD_CAPTCHA_CLASS = 'AuthPasswordForm-captcha'
+    EMAIL_INPUT_ID = '#passp-field-login'
+    EMAIL_HINT_ID = '#field\:input-login\:hint'
+    PASSWORD_INPUT_ID = '#passp-field-passwd'
+    PASSWORD_HINT_ID = '#field\:input-passwd\:hint'
+    QR_CODE_CLASS = '.MagicField-qr'
+    PASSWORD_CAPTCHA_CLASS = '.AuthPasswordForm-captcha'
     LOGIN_TYPE_SELECTOR = '.AuthLoginInputToggle-type > button'
     PHONE_CONFIRM_BUTTON_SELECTOR = '[data-t=challenge_sumbit_phone-confirmation] > button'
-    PHONE_CODE_FIELD_CLASS = 'CodeField'
-    ADD_ACCOUNT_BUTTON_CLASS = 'AddAccountButton'
+    PHONE_CODE_FIELD_CLASS = '.CodeField'
+    ADD_ACCOUNT_BUTTON_CLASS = '.AddAccountButton'
 
 
 @dataclass(frozen=True)
