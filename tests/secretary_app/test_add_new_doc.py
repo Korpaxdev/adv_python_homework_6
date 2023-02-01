@@ -41,7 +41,7 @@ def test_add_new_doc(monkeypatch, doc_number, doc_type, doc_owner, doc_shelf):
     """
     props = iter([doc_number, doc_type, doc_owner, doc_shelf])
     monkeypatch.setattr('builtins.input', lambda _: next(props))
-    value = add_new_doc()
+    add_new_doc()
     assert any(doc_number in d.values() for d in documents) and doc_number in chain(*directories.values())
     print(f"\n{documents=}")
     print(f"{directories=}")

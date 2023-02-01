@@ -1,7 +1,8 @@
-from enum import Enum
+from dataclasses import dataclass
 
 
-class YandexEnum(Enum):
+@dataclass(frozen=True)
+class Main:
     BASE_URL = 'https://cloud-api.yandex.net/v1/disk'
     RESOURCE_URL = f'{BASE_URL}/resources'
     TOKEN = ''  # Вставьте ваш токен авторизации сюда
@@ -9,12 +10,14 @@ class YandexEnum(Enum):
                     'Another_test/Something', '']  # Имена папок для test_create_folder
 
 
-class StatusCodesEnum(Enum):
+@dataclass(frozen=True)
+class StatusCodes:
     CODE_201 = 201
     CODE_200 = 200
     OK_STATUS_CODES = [CODE_201, CODE_200]
 
 
-class ErrorsEnum(Enum):
+@dataclass(frozen=True)
+class Errors:
     # Шаблон строки ответа в случае False в assert
     WRONG_STATUS_CODE_FORMAT = '\n[STATUS CODE]: {status_code}\n[MESSAGE]: {text}'

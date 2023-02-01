@@ -1,8 +1,8 @@
 import pytest
-from tests.yandex_app.enums.yandex_enums import YandexEnum
+from tests.yandex_app.utils.constants import Main
 
 
-@pytest.mark.parametrize('folder_name', YandexEnum.FOLDER_NAMES.value)
+@pytest.mark.parametrize('folder_name', Main.FOLDER_NAMES)
 def test_create_folder(yandex_api, folder_name):
     yandex_api \
         .assert_authorized() \

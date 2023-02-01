@@ -26,13 +26,15 @@ class ErrorMessages:
     QR_CODE = '[ERROR]: Для входа необходимо использовать QR CODE'
     PASSWORD_CAPTCHA = '[ERROR]: Предпринято много попыток для входа. Необходимо ввести captcha'
     PHONE_CONFIRM = '[ERROR]: Необходимо подтверждение номера телефона'
+    FORMAT_MESSAGE = '[ERROR]: {text}'
 
 
-@dataclass(frozen=True)
-class AuthData:
-    TESTS_DATA = [
-        # (email, password)
-        ('', ''),
-        (1, '123'),
-        ('HELLO', 123)
-    ]
+TEST_DATA = [
+    # Тестовые данные для тестирования в test_auth_page.
+    # В эти данные можете добавить свой аккаунт, для проверки входа
+    # Шаблон - (email, password)
+    ('', ''),
+    (1, '123'),
+    ('HELLO', 123),
+    ('qweraiwdzxc', 'None'),
+]
